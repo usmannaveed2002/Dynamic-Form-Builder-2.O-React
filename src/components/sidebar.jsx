@@ -1,7 +1,4 @@
-function Sidebar({ whichField, setWhichField }) {
-  function handleMenuClick(e) {
-    setWhichField(e.target.textContent);
-  }
+function Sidebar({ setWhichField, setFields }) {
   return (
     <>
       <div className="bg-gray-200 h-screen w-130 pt-25">
@@ -10,49 +7,121 @@ function Sidebar({ whichField, setWhichField }) {
           <div className="flex flex-col gap-3 mt-5">
             <span
               className="cursor-pointer hover:text-blue-800"
-              onClick={(e) => handleMenuClick(e)}
+              onClick={(e) => {
+                setWhichField(e.target.textContent);
+                setFields((prev) => [
+                  ...prev,
+                  {
+                    id: crypto.randomUUID(),
+                    type: "label",
+                  },
+                ]);
+              }}
             >
               Label
             </span>
             <span
               className="cursor-pointer hover:text-blue-800"
-              onClick={(e) => handleMenuClick(e)}
+              onClick={(e) => {
+                setWhichField(e.target.textContent);
+                setFields((prev) => [
+                  ...prev,
+                  {
+                    id: crypto.randomUUID(),
+                    type: "text",
+                  },
+                ]);
+              }}
             >
               Text Input
             </span>
             <span
               className="cursor-pointer hover:text-blue-800"
-              onClick={(e) => handleMenuClick(e)}
+              onClick={(e) => {
+                setWhichField(e.target.textContent);
+                setFields((prev) => [
+                  ...prev,
+                  {
+                    id: crypto.randomUUID(),
+                    type: "textarea",
+                  },
+                ]);
+              }}
             >
               Textarea
             </span>
             <span
               className="cursor-pointer hover:text-blue-800"
-              onClick={(e) => handleMenuClick(e)}
+              onClick={(e) => {
+                setWhichField(e.target.textContent);
+                setFields((prev) => [
+                  ...prev,
+                  {
+                    id: crypto.randomUUID(),
+                    type: "select",
+                  },
+                ]);
+              }}
             >
               Select
             </span>
             <span
               className="cursor-pointer hover:text-blue-800"
-              onClick={(e) => handleMenuClick(e)}
+              onClick={(e) => {
+                setWhichField(e.target.textContent);
+                setFields((prev) => [
+                  ...prev,
+                  {
+                    id: crypto.randomUUID(),
+                    type: "date",
+                  },
+                ]);
+              }}
             >
               Date
             </span>
             <span
               className="cursor-pointer hover:text-blue-800"
-              onClick={(e) => handleMenuClick(e)}
+              onClick={(e) => {
+                setWhichField(e.target.textContent);
+                setFields((prev) => [
+                  ...prev,
+                  {
+                    id: crypto.randomUUID(),
+                    type: "checkbox",
+                  },
+                ]);
+              }}
             >
               Checkbox
             </span>
             <span
               className="cursor-pointer hover:text-blue-800"
-              onClick={(e) => handleMenuClick(e)}
+              onClick={(e) => {
+                setWhichField(e.target.textContent);
+                setFields((prev) => [
+                  ...prev,
+                  {
+                    id: crypto.randomUUID(),
+                    type: "radio",
+                  },
+                ]);
+              }}
             >
               Radio
             </span>
             <span
               className="cursor-pointer hover:text-blue-800"
-              onClick={(e) => handleMenuClick(e)}
+              onClick={(e) => {
+                setWhichField(e.target.textContent);
+                setFields((prev) => [
+                  ...prev,
+                  {
+                    id: crypto.randomUUID(),
+                    type: "file",
+                  },
+                ]);
+              }}
             >
               File
             </span>

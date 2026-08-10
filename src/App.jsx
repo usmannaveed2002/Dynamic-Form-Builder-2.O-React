@@ -10,21 +10,16 @@ function App() {
   const [placeholder, setPlaceholder] = useState("");
   const [pattern, setPatter] = useState("");
   const [required, setRequired] = useState("");
+  const [fields, setFields] = useState([]);
 
   return (
     <>
       <Navbar />
       <div className="flex">
-        <Sidebar whichField={whichField} setWhichField={setWhichField} />
-        <FormPreview
-          whichField={whichField}
-          label={label}
-          placeholder={placeholder}
-          pattern={pattern}
-          required={required}
-        />
+        <Sidebar setWhichField={setWhichField} setFields={setFields} />
+        <FormPreview whichField={whichField} fields={fields} />
+        <OpenModal whichField={whichField} setWhichField={setWhichField} />
       </div>
-      <OpenModal whichField={whichField} setWhichField={setWhichField} />
     </>
   );
 }
