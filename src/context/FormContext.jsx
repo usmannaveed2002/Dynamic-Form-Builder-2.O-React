@@ -1,0 +1,48 @@
+import { createContext, useContext, useState } from "react";
+
+const FormContext = createContext();
+
+function FormProvider({ children }) {
+  const [fields, setFields] = useState([]);
+  const [selectedFieldId, setSelectedFieldId] = useState(null);
+
+  function addField(type) {
+    let newField = {
+      id: crypto.randomUUID(),
+      type: type,
+    };
+
+    setFields((prev) => [...prev, newField]);
+    setSelectedFieldId(newField.id);
+  }
+
+  function updateField(fieldId, updates) {
+    setFields((prev) =>
+      prev.map((field) =>
+        field.id === fieldId ? { ...field, ...updates } : field,
+      ),
+    );
+  }
+
+  return (
+    <FormContext.Provider
+      value={{
+        fields,
+        setFields,
+        selectedFieldId,
+        addField,
+        updateField,
+        setSelectedFieldId,
+      }}
+    >
+      {children}
+    </FormContext.Provider>
+  );
+}
+
+function useForm() {
+  return useContext(FormContext);
+}
+
+export default FormProvider;
+export { useForm };

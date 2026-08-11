@@ -3,24 +3,20 @@ import Sidebar from "./components/sidebar";
 import { useState } from "react";
 import FormPreview from "./components/formPreview";
 import OpenModal from "./components/openModal";
+import FormProvider from "./context/FormContext";
 
 function App() {
   const [whichField, setWhichField] = useState("");
-  const [label, setLabel] = useState("");
-  const [placeholder, setPlaceholder] = useState("");
-  const [pattern, setPatter] = useState("");
-  const [required, setRequired] = useState("");
-  const [fields, setFields] = useState([]);
 
   return (
-    <>
+    <FormProvider>
       <Navbar />
       <div className="flex">
-        <Sidebar setWhichField={setWhichField} setFields={setFields} />
-        <FormPreview whichField={whichField} fields={fields} />
+        <Sidebar setWhichField={setWhichField} />
+        <FormPreview whichField={whichField} />
         <OpenModal whichField={whichField} setWhichField={setWhichField} />
       </div>
-    </>
+    </FormProvider>
   );
 }
 

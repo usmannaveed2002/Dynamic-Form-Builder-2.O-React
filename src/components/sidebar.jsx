@@ -1,4 +1,7 @@
-function Sidebar({ setWhichField, setFields }) {
+import { useForm } from "../context/FormContext";
+
+function Sidebar({ setWhichField }) {
+  const { addField } = useForm();
   return (
     <>
       <div className="bg-gray-200 h-screen w-130 pt-25">
@@ -9,13 +12,7 @@ function Sidebar({ setWhichField, setFields }) {
               className="cursor-pointer hover:text-blue-800"
               onClick={(e) => {
                 setWhichField(e.target.textContent);
-                setFields((prev) => [
-                  ...prev,
-                  {
-                    id: crypto.randomUUID(),
-                    type: "label",
-                  },
-                ]);
+                addField("label");
               }}
             >
               Label
@@ -24,13 +21,7 @@ function Sidebar({ setWhichField, setFields }) {
               className="cursor-pointer hover:text-blue-800"
               onClick={(e) => {
                 setWhichField(e.target.textContent);
-                setFields((prev) => [
-                  ...prev,
-                  {
-                    id: crypto.randomUUID(),
-                    type: "text",
-                  },
-                ]);
+                addField("text");
               }}
             >
               Text Input
@@ -39,13 +30,7 @@ function Sidebar({ setWhichField, setFields }) {
               className="cursor-pointer hover:text-blue-800"
               onClick={(e) => {
                 setWhichField(e.target.textContent);
-                setFields((prev) => [
-                  ...prev,
-                  {
-                    id: crypto.randomUUID(),
-                    type: "textarea",
-                  },
-                ]);
+                addField("textarea");
               }}
             >
               Textarea
@@ -54,13 +39,7 @@ function Sidebar({ setWhichField, setFields }) {
               className="cursor-pointer hover:text-blue-800"
               onClick={(e) => {
                 setWhichField(e.target.textContent);
-                setFields((prev) => [
-                  ...prev,
-                  {
-                    id: crypto.randomUUID(),
-                    type: "select",
-                  },
-                ]);
+                addField("select");
               }}
             >
               Select
@@ -69,13 +48,7 @@ function Sidebar({ setWhichField, setFields }) {
               className="cursor-pointer hover:text-blue-800"
               onClick={(e) => {
                 setWhichField(e.target.textContent);
-                setFields((prev) => [
-                  ...prev,
-                  {
-                    id: crypto.randomUUID(),
-                    type: "date",
-                  },
-                ]);
+                addField("date");
               }}
             >
               Date
@@ -84,13 +57,7 @@ function Sidebar({ setWhichField, setFields }) {
               className="cursor-pointer hover:text-blue-800"
               onClick={(e) => {
                 setWhichField(e.target.textContent);
-                setFields((prev) => [
-                  ...prev,
-                  {
-                    id: crypto.randomUUID(),
-                    type: "checkbox",
-                  },
-                ]);
+                addField("checkbox");
               }}
             >
               Checkbox
@@ -99,13 +66,7 @@ function Sidebar({ setWhichField, setFields }) {
               className="cursor-pointer hover:text-blue-800"
               onClick={(e) => {
                 setWhichField(e.target.textContent);
-                setFields((prev) => [
-                  ...prev,
-                  {
-                    id: crypto.randomUUID(),
-                    type: "radio",
-                  },
-                ]);
+                addField("radio");
               }}
             >
               Radio
@@ -114,13 +75,7 @@ function Sidebar({ setWhichField, setFields }) {
               className="cursor-pointer hover:text-blue-800"
               onClick={(e) => {
                 setWhichField(e.target.textContent);
-                setFields((prev) => [
-                  ...prev,
-                  {
-                    id: crypto.randomUUID(),
-                    type: "file",
-                  },
-                ]);
+                addField("file");
               }}
             >
               File
