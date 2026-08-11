@@ -1,28 +1,32 @@
 import { useForm } from "../context/FormContext";
 
 function FileInputModal() {
-  const { selectedId, updatedField } = useForm();
+  const { selectedFieldId, updatedField } = useForm();
   return (
     <div className="mt-2 p-2">
       <input
         type="text"
         placeholder="Enter Label"
         className="w-143 border border-gray-300 rounded-md m-2 px-3 py-2 focus:outline-none"
-        onChange={(e) => updatedField(selectedId, { label: e.target.value })}
+        onChange={(e) =>
+          updatedField(selectedFieldId, { label: e.target.value })
+        }
       ></input>
       <input
         type="text"
         placeholder="Enter Placeholder"
         className="w-143 border border-gray-300 rounded-md m-2 px-3 py-2 focus:outline-none"
         onChange={(e) =>
-          updatedField(selectedId, { placeholder: e.target.value })
+          updatedField(selectedFieldId, { placeholder: e.target.value })
         }
       ></input>
       <div className="w-143 ml-2 flex flex-col mt-2 gap-2">
         <label className="text-gray-500">Allowed File Types</label>
         <select
           className="w-full border border-gray-300 rounded-md px-3 py-2 bg-white focus:outline-none text-gray-500"
-          onChange={(e) => updatedField(selectedId, { accept: e.target.value })}
+          onChange={(e) =>
+            updatedField(selectedFieldId, { accept: e.target.value })
+          }
         >
           <option value={""}>All Allowed</option>
           <option value={"[0-9]+"}>Images Only</option>
@@ -36,7 +40,7 @@ function FileInputModal() {
           type="checkbox"
           className="h-4 w-4 mr-3 hover:cursor-pointer"
           onChange={(e) =>
-            updatedField(selectedId, { required: e.target.checked })
+            updatedField(selectedFieldId, { required: e.target.checked })
           }
         />
         <label className="text-gray-500">Required?</label>

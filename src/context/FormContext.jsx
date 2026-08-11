@@ -24,6 +24,10 @@ function FormProvider({ children }) {
     );
   }
 
+  function deleteField(fieldId) {
+    setFields((prev) => prev.filter((field) => field.id !== fieldId));
+  }
+
   return (
     <FormContext.Provider
       value={{
@@ -32,6 +36,7 @@ function FormProvider({ children }) {
         selectedFieldId,
         addField,
         updateField,
+        deleteField,
         setSelectedFieldId,
       }}
     >
