@@ -9,7 +9,10 @@ function Navbar() {
           Fill Form
         </span>
         <span className="bg-gray-500 rounded-md text-white py-1 px-2 text-lg hover:bg-gray-700 hover:cursor-pointer">
-          View Form
+          View Forms
+        </span>
+        <span className="bg-gray-500 rounded-md text-white py-1 px-2 text-lg hover:bg-gray-700 hover:cursor-pointer">
+          View Responses
         </span>
       </div>
     </nav>

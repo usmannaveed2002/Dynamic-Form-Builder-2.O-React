@@ -5,6 +5,7 @@ const FormContext = createContext();
 function FormProvider({ children }) {
   const [fields, setFields] = useState([]);
   const [selectedFieldId, setSelectedFieldId] = useState(null);
+  const [formName, setFormName] = useState("");
 
   function addField(type) {
     let newField = {
@@ -38,6 +39,8 @@ function FormProvider({ children }) {
         updateField,
         deleteField,
         setSelectedFieldId,
+        formName,
+        setFormName,
       }}
     >
       {children}

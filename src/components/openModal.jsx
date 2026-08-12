@@ -8,14 +8,21 @@ import TextareaModal from "./textareaModal";
 import TextInputModal from "./textInputModal";
 
 import { useForm } from "../context/FormContext";
+import FormNameModal from "./formNameModal";
+import { useEffect, useState } from "react";
 
 function OpenModal({ whichField, setWhichField }) {
-  const { selectedFieldId, updatedField, deleteField } = useForm();
+  const { selectedFieldId, updatedField, deleteField, formName, fields } =
+    useForm();
 
   return (
     whichField && (
       <div className="fixed inset-0 bg-gray-500/50 flex items-start justify-center overflow-y-auto p-50">
         <div className="bg-white min-h-40 w-150 rounded-lg">
+          <FormNameModal />
+          <span className="text-sm font-medium text-gray-500 mx-5">
+            Attributes: Field {fields.length}
+          </span>
           {whichField === "Label" ? <LabelModal /> : ""}
           {whichField === "Text Input" ? <TextInputModal /> : ""}
           {whichField === "Textarea" ? <TextareaModal /> : ""}
