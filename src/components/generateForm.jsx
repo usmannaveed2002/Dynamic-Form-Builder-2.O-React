@@ -1,32 +1,24 @@
-import { useState } from "react";
-import { useForm } from "../context/FormContext";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+function GenerateForm() {
+  const [form, setForm] = useState([]);
+  let { formId } = useParams();
 
-function FormPreview() {
-  const { fields, setFields, formName } = useForm();
-  const navigate = useNavigate();
-
-  function saveNewForm() {
-    let newForm = {
-      id: crypto.randomUUID(),
-      name: formName,
-      fields,
-    };
+  useEffect(() => {
     let savedForms = localStorage.getItem("forms");
     let forms = savedForms ? JSON.parse(savedForms) : [];
-    let updatedForms = [...forms, newForm];
-    localStorage.setItem("forms", JSON.stringify(updatedForms));
-    navigate(`/fill-form/${newForm.id}`);
-  }
+    let currentForm = forms.find((form) => form.id === formId);
+    setForm(currentForm);
+  }, [formId]);
 
   return (
     <div className="bg-gray-300 py-25 px-10 w-full">
       <div className="bg-white min-h-full w-full rounded-lg py-2">
         <legend className="flex items-center justify-center text-2xl text-gray-600 font-medium">
-          {formName}
+          {form.name}
         </legend>
         <form methed="POST">
-          {fields.map((field) => {
+          {form.fields?.map((field) => {
             return field.type === "label" ? (
               <label
                 key={field.id}
@@ -141,7 +133,7 @@ function FormPreview() {
             );
           })}
 
-          {fields.length > 0 && (
+          {/* {fields.length > 0 && (
             <div className="flex items-center justify-between w-170 mx-7 my-5 p-3">
               <button
                 className="bg-green-700 py-1 px-3 rounded-sm cursor-pointer text-white hover:bg-green-800"
@@ -159,11 +151,11 @@ function FormPreview() {
                 Reset Form
               </button>
             </div>
-          )}
+          )} */}
         </form>
       </div>
     </div>
   );
 }
 
-export default FormPreview;
+export default GenerateForm;

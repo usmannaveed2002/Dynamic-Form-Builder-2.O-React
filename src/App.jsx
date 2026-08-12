@@ -1,21 +1,17 @@
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/sidebar";
-import { useState } from "react";
-import FormPreview from "./components/formPreview";
-import OpenModal from "./components/openModal";
 import FormProvider from "./context/FormContext";
+import { Route, Routes } from "react-router-dom";
+import CreateFormPage from "./pages/CreateForm";
+import FillFormPage from "./pages/FillForm";
 
 function App() {
-  const [whichField, setWhichField] = useState("");
-
   return (
     <FormProvider>
       <Navbar />
-      <div className="flex">
-        <Sidebar setWhichField={setWhichField} />
-        <FormPreview whichField={whichField} />
-        <OpenModal whichField={whichField} setWhichField={setWhichField} />
-      </div>
+      <Routes>
+        <Route path="/" element={<CreateFormPage />} />
+        <Route path="/fill-form/:formId" element={<FillFormPage />} />
+      </Routes>
     </FormProvider>
   );
 }

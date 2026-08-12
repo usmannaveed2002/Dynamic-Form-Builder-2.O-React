@@ -44,7 +44,9 @@ function OpenModal({ whichField, setWhichField }) {
             </button>
             <button
               className="bg-gray-500 px-4 text-white py-1 rounded-full cursor-pointer hover:text-gray-500 hover:bg-white"
-              onClick={() => setWhichField("")}
+              onClick={() => {
+                setWhichField("");
+              }}
             >
               Save
             </button>
