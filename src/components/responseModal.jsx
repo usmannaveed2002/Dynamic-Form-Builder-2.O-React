@@ -1,5 +1,4 @@
 function ResponseModal({ response, setOpenResponse }) {
-  console.log(response);
   let forms = JSON.parse(localStorage.getItem("forms")) || [];
   let form = forms.find((form) => form.id === response.formId);
   return (
@@ -11,11 +10,12 @@ function ResponseModal({ response, setOpenResponse }) {
               <div className="flex items-center justify-between">
                 <div className="flex items-center justify-start w-full pl-5 text-gray-500 font-medium">
                   <span className="border-r-2 pr-2">{index + 1}</span>
-                  <span className="border-r-2 px-2 w-125 truncate">
+                  <span className="border-r-2 px-2 w-70 truncate">
                     {field.label}
                   </span>
                   <span className="px-2 w-85 truncate">
-                    {response.response[field.id]}
+                    {response.response[field.id] ||
+                      response.response[field.name]}
                   </span>
                 </div>
               </div>

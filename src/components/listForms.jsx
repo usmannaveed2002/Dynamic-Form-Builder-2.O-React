@@ -13,7 +13,7 @@ function ListForms() {
 
   return (
     <div className="bg-gray-600 h-screen w-screen flex items-center justify-center">
-      <div className="bg-white h-[70vh] w-[70vw] rounded-lg">
+      <div className="bg-white h-[70vh] w-[70vw] rounded-lg overflow-y-auto">
         <span className="flex items-center justify-center text-xl font-medium text-gray-600 my-3">
           Available Forms
         </span>

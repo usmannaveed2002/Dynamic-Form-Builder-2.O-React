@@ -35,12 +35,19 @@ function GenerateForm() {
   }
 
   return (
-    <div className="bg-gray-300 h-screen py-25 px-10 w-full flex items-center justify-center">
+    <div className="bg-gray-300 py-25 px-10 w-full flex items-center justify-center">
       <div className="bg-white w-185 rounded-lg py-2">
         <legend className="flex items-center justify-center text-2xl text-gray-600 font-medium">
           {form.name}
         </legend>
-        <form methed="POST" ref={formRef}>
+        <form
+          methed="POST"
+          ref={formRef}
+          onSubmit={(e) => {
+            e.preventDefault();
+            saveNewResponse();
+          }}
+        >
           {form.fields?.map((field) => {
             return field.type === "label" ? (
               <label
@@ -107,7 +114,9 @@ function GenerateForm() {
                   <option>Select {field.label}</option>
                   {field.options?.map((option) => {
                     return (
-                      <option value={option.toLowerCase()}>{option}</option>
+                      <option key={option} value={option.toLowerCase()}>
+                        {option}
+                      </option>
                     );
                   })}
                 </select>
@@ -148,7 +157,7 @@ function GenerateForm() {
                   onChange={(e) => {
                     setResponse((prev) => ({
                       ...prev,
-                      [field.id]: e.target.value,
+                      [field.id]: e.target.files,
                     }));
                   }}
                 />
@@ -163,7 +172,7 @@ function GenerateForm() {
                   onChange={(e) => {
                     setResponse((prev) => ({
                       ...prev,
-                      [field.id]: e.target.value,
+                      [field.id]: e.target.checked,
                     }));
                   }}
                 />
@@ -178,14 +187,15 @@ function GenerateForm() {
               >
                 <div key={field.id} className="flex px-1 items-center gap-2">
                   <input
-                    name={field.label || field.placeholder}
                     type="radio"
+                    value={field.label}
                     name={field.name}
+                    required={field.required}
                     className="text-gray-600 w-4 h-4 border border-gray-300 rounded-md px-3 py-2 focus:outline-none"
                     onChange={(e) => {
                       setResponse((prev) => ({
                         ...prev,
-                        [field.id]: e.target.value,
+                        [field.name]: e.target.value,
                       }));
                     }}
                   />
@@ -200,13 +210,7 @@ function GenerateForm() {
           })}
 
           <div className="flex items-center justify-between w-170 mx-7 my-5 p-3">
-            <button
-              className="bg-green-700 py-1 px-3 rounded-sm cursor-pointer text-white hover:bg-green-800"
-              onClick={(e) => {
-                e.preventDefault();
-                saveNewResponse();
-              }}
-            >
+            <button className="bg-green-700 py-1 px-3 rounded-sm cursor-pointer text-white hover:bg-green-800">
               Submit Form
             </button>
             <button

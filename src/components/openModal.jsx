@@ -12,8 +12,7 @@ import FormNameModal from "./formNameModal";
 import { useEffect, useState } from "react";
 
 function OpenModal({ whichField, setWhichField }) {
-  const { selectedFieldId, updatedField, deleteField, formName, fields } =
-    useForm();
+  const { selectedFieldId, deleteField, formName, fields } = useForm();
 
   return (
     whichField && (
