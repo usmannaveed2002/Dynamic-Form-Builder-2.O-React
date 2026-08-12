@@ -17,7 +17,7 @@ function OpenModal({ whichField, setWhichField }) {
 
   return (
     whichField && (
-      <div className="fixed inset-0 bg-gray-500/50 flex items-start justify-center overflow-y-auto p-50">
+      <div className="fixed inset-0 bg-gray-500/50 flex items-start justify-center overflow-y-auto p-35">
         <div className="bg-white min-h-40 w-150 rounded-lg">
           <FormNameModal />
           <span className="text-sm font-medium text-gray-500 mx-5">

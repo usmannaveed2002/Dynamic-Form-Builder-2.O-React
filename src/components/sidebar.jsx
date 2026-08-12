@@ -5,12 +5,12 @@ function Sidebar({ setWhichField }) {
   const { addField, formName, fields } = useForm();
 
   return (
-    <div className="bg-gray-200 h-screen w-130 pt-25">
-      <div className="flex flex-col bg-gray-300 m-5 rounded-lg p-3">
+    <div className="bg-gray-600 h-screen w-130 pt-25">
+      <div className="flex flex-col bg-gray-900 text-white text-lg font-medium m-5 rounded-lg p-5">
         <h1>Click to add the field.</h1>
         <div className="flex flex-col gap-3 mt-5">
           <span
-            className="cursor-pointer hover:text-blue-800"
+            className="cursor-pointer hover:text-yellow-300"
             onClick={(e) => {
               setWhichField(e.target.textContent);
               addField("label");
@@ -19,7 +19,7 @@ function Sidebar({ setWhichField }) {
             Label
           </span>
           <span
-            className="cursor-pointer hover:text-blue-800"
+            className="cursor-pointer hover:text-yellow-300"
             onClick={(e) => {
               setWhichField(e.target.textContent);
               addField("text");
@@ -28,7 +28,7 @@ function Sidebar({ setWhichField }) {
             Text Input
           </span>
           <span
-            className="cursor-pointer hover:text-blue-800"
+            className="cursor-pointer hover:text-yellow-300"
             onClick={(e) => {
               setWhichField(e.target.textContent);
               addField("textarea");
@@ -37,7 +37,7 @@ function Sidebar({ setWhichField }) {
             Textarea
           </span>
           <span
-            className="cursor-pointer hover:text-blue-800"
+            className="cursor-pointer hover:text-yellow-300"
             onClick={(e) => {
               setWhichField(e.target.textContent);
               addField("select");
@@ -46,7 +46,7 @@ function Sidebar({ setWhichField }) {
             Select
           </span>
           <span
-            className="cursor-pointer hover:text-blue-800"
+            className="cursor-pointer hover:text-yellow-300"
             onClick={(e) => {
               setWhichField(e.target.textContent);
               addField("date");
@@ -55,7 +55,7 @@ function Sidebar({ setWhichField }) {
             Date
           </span>
           <span
-            className="cursor-pointer hover:text-blue-800"
+            className="cursor-pointer hover:text-yellow-300"
             onClick={(e) => {
               setWhichField(e.target.textContent);
               addField("checkbox");
@@ -64,7 +64,7 @@ function Sidebar({ setWhichField }) {
             Checkbox
           </span>
           <span
-            className="cursor-pointer hover:text-blue-800"
+            className="cursor-pointer hover:text-yellow-300"
             onClick={(e) => {
               setWhichField(e.target.textContent);
               addField("radio");
@@ -73,7 +73,7 @@ function Sidebar({ setWhichField }) {
             Radio
           </span>
           <span
-            className="cursor-pointer hover:text-blue-800"
+            className="cursor-pointer hover:text-yellow-300"
             onClick={(e) => {
               setWhichField(e.target.textContent);
               addField("file");
