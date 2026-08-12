@@ -20,7 +20,7 @@ function FormPreview() {
   }
 
   return (
-    <div className="bg-gray-600 py-25 px-10 w-full">
+    <div className="bg-gray-600 py-25 px-10 w-full h-[100vh] overflow-y-auto">
       <div className="bg-white min-h-full w-250 rounded-lg py-2">
         <legend className="flex items-center justify-center text-2xl text-gray-600 font-medium">
           {formName}
