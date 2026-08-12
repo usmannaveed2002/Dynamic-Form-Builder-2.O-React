@@ -14,8 +14,12 @@ function ResponseModal({ response, setOpenResponse }) {
                     {field.label}
                   </span>
                   <span className="px-2 w-85 truncate">
-                    {response.response[field.id] ||
-                      response.response[field.name]}
+                    {field.type !== "checkbox"
+                      ? response.response[field.id] ||
+                        response.response[field.name]
+                      : response.response[field.id]
+                        ? "Yes"
+                        : "No"}
                   </span>
                 </div>
               </div>

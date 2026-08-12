@@ -31,7 +31,7 @@ function GenerateForm() {
     let responses = savedResponses ? JSON.parse(savedResponses) : [];
     let updatedResponses = [...responses, newResponse];
     localStorage.setItem("responses", JSON.stringify(updatedResponses));
-    navigate(`/view-responses/${newResponse.id}`);
+    navigate(`/view-responses`);
   }
 
   return (

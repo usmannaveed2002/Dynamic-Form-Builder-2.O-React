@@ -5,7 +5,7 @@ function Sidebar({ setWhichField }) {
   const { addField, formName, fields } = useForm();
 
   return (
-    <div className="bg-gray-600 h-screen w-130 pt-25">
+    <div className="bg-gray-600 w-130 pt-25">
       <div className="flex flex-col bg-gray-900 text-white text-lg font-medium m-5 rounded-lg p-5">
         <h1>Click to add the field.</h1>
         <div className="flex flex-col gap-3 mt-5">

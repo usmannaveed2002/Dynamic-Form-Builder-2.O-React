@@ -73,7 +73,9 @@ function FormPreview() {
                 >
                   {field.options?.map((option) => {
                     return (
-                      <option value={option.toLowerCase()}>{option}</option>
+                      <option key={option} value={option.toLowerCase()}>
+                        {option}
+                      </option>
                     );
                   })}
                 </select>
